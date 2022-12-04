@@ -5,12 +5,14 @@ path, _ = os.path.split(os.path.realpath(__file__))
 with open(os.path.join(path, "input.txt")) as f:
     lines = [line.rstrip() for line in f]
 
-values = {'A': 1,  # rock
-          'B': 2,  # paper
-          'C': 3,  # scissors
-          'X': 1,  # rock       / lose
-          'Y': 2,  # paper      / draw
-          'Z': 3}  # scissors   / win
+values = {
+    "A": 1,  # rock
+    "B": 2,  # paper
+    "C": 3,  # scissors
+    "X": 1,  # rock       / lose
+    "Y": 2,  # paper      / draw
+    "Z": 3,
+}  # scissors   / win
 
 score_p1 = 0
 score_p2 = 0
@@ -20,7 +22,7 @@ draw = 3
 lose = 0
 
 for this_game in lines:
-    opponent, me = this_game.split(' ')
+    opponent, me = this_game.split(" ")
 
     # Part 1
     # Observation: When you subtract my value from the opponent's and modulo

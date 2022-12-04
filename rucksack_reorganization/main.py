@@ -1,14 +1,16 @@
 import os
-from typing import Tuple, List
+from typing import List, Tuple
 
 path, _ = os.path.split(os.path.realpath(__file__))
 
 with open(os.path.join(path, "input.txt")) as f:
     lines = [line.rstrip() for line in f]
 
+
 def get_compartments(comp: str) -> Tuple[str, str]:
-    mid = len(comp)//2
+    mid = len(comp) // 2
     return (comp[:mid], comp[mid:])
+
 
 def items_shared(comp1: str, comp2: str) -> List[str]:
     shared = set()
@@ -20,11 +22,13 @@ def items_shared(comp1: str, comp2: str) -> List[str]:
 
     return list(shared)
 
+
 def get_proirity(char: str) -> int:
     ord_val = ord(char)
     if ord_val > 90:
         return ord_val - 96
     return ord_val - 38
+
 
 sum_priorities = 0
 
@@ -34,6 +38,7 @@ for line in lines:
     sum_priorities += get_proirity(item_shared)
 
 print(sum_priorities)
+
 
 def item_shared_in_group(el1: str, el2: str, el3: str) -> str:
     shared = set()
@@ -47,10 +52,10 @@ def item_shared_in_group(el1: str, el2: str, el3: str) -> str:
 
     return list(shared)[0]
 
+
 sum_priorities = 0
-for i in range(0,len(lines), 3):
-    item = item_shared_in_group(lines[i], lines[i+1], lines[i+2])
+for i in range(0, len(lines), 3):
+    item = item_shared_in_group(lines[i], lines[i + 1], lines[i + 2])
     sum_priorities += get_proirity(item)
 
 print(sum_priorities)
-    

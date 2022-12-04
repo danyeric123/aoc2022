@@ -11,7 +11,9 @@ def fully_contain(pair: Tuple[str, str]) -> bool:
     first1, first2 = [int(x) for x in pair[0].split("-")]
     second1, second2 = [int(x) for x in pair[1].split("-")]
 
-    if (first1 <= second1 and first2 >= second2) or (
+    if (
+        first1 <= second1 and first2 >= second2
+    ) or (
         first1 >= second1 and first2 <= second2
     ):
         return True
@@ -32,7 +34,9 @@ def overlap(pair: Tuple[str, str]) -> bool:
     first1, first2 = [int(x) for x in pair[0].split("-")]
     second1, second2 = [int(x) for x in pair[1].split("-")]
 
-    if (first2 < second1 and first1 < second2) or (
+    if (
+        first2 < second1 and first1 < second2
+    ) or (
         first2 > second1 and first1 > second2
     ):
         return False
